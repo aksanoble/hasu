@@ -1,0 +1,99 @@
+/* ProjectList/Sidebar Theme Styles */
+.sidebar {
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  border-right: 1px solid var(--border-color);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar-scrollable {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.sidebar-button {
+  color: var(--sidebar-text);
+  transition: all 0.2s ease;
+}
+
+.sidebar-button:hover {
+  background-color: var(--sidebar-hover);
+  color: var(--text-primary);
+}
+
+.sidebar-button.active {
+  background-color: var(--sidebar-hover);
+  color: var(--text-primary);
+}
+
+.sidebar-dropdown {
+  background-color: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.sidebar-dropdown-item {
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.sidebar-dropdown-item:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.sidebar-dropdown-header {
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-icon {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.sidebar-icon:hover {
+  color: var(--text-primary);
+}
+
+.add-task-button {
+  background-color: var(--danger-color);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.add-task-button:hover {
+  background-color: var(--danger-hover);
+}
+
+.user-avatar {
+  background-color: var(--danger-color);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.user-avatar:hover {
+  background-color: var(--danger-hover);
+}
+
+.project-count {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+/* Theme toggle specific styles */
+.theme-toggle .theme-option {
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.theme-toggle .theme-option:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.theme-toggle .sidebar-dropdown-item.active {
+  color: var(--accent-color);
+  background-color: var(--bg-tertiary);
+}

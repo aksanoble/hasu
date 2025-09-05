@@ -1,0 +1,209 @@
+/* AddTaskModal Theme Styles */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-container {
+  background-color: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-title {
+  color: var(--text-primary);
+}
+
+.modal-textarea {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: none;
+  outline: none;
+}
+
+.modal-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.date-hint {
+  background-color: var(--warning-color);
+  color: white;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.875rem;
+}
+
+.project-dropdown {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-dropdown-item {
+  color: var(--text-secondary);
+  transition: background-color 0.2s ease;
+}
+
+.project-dropdown-item:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.project-dropdown-item.active {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.project-dropdown-item .text-red-500 {
+  color: var(--danger-color) !important;
+}
+
+.project-dropdown-help {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.project-tag {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+}
+
+.project-tag .hash {
+  color: var(--danger-color) !important;
+}
+
+.date-button {
+  color: var(--text-primary);
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.date-button:hover {
+  border-color: var(--border-color);
+}
+
+.date-panel {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.date-panel-button {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease;
+}
+
+.date-panel-button:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.date-input {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.priority-tag {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.875rem;
+}
+
+.priority-tag .flag-icon {
+  color: var(--danger-color);
+}
+
+.priority-tag .close-button {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.priority-tag .close-button:hover {
+  color: var(--text-primary);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--border-color);
+}
+
+.project-selector {
+  color: var(--text-primary);
+  transition: background-color 0.2s ease;
+}
+
+.project-selector:hover {
+  background-color: var(--bg-secondary);
+}
+
+.project-selector .hash {
+  color: var(--text-muted);
+}
+
+.project-selector .arrow {
+  color: var(--text-muted);
+}
+
+.project-selector .text-red-500 {
+  color: var(--danger-color) !important;
+}
+
+.bottom-project-dropdown {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.bottom-project-item {
+  color: var(--text-secondary);
+  transition: background-color 0.2s ease;
+}
+
+.bottom-project-item:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.bottom-project-item.active {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.bottom-project-item .inbox-label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.bottom-project-item .text-red-500 {
+  color: var(--danger-color) !important;
+}
+
+.cancel-button {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease;
+}
+
+.cancel-button:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.submit-button {
+  background-color: var(--danger-color);
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--danger-hover);
+}
+
+.submit-button:disabled {
+  background-color: var(--text-muted);
+  cursor: not-allowed;
+}

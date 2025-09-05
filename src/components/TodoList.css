@@ -1,0 +1,118 @@
+/* TodoList Theme Styles */
+.todo-list-container {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.todo-header {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.todo-header h2 {
+  color: var(--text-primary);
+}
+
+.todo-header button {
+  color: var(--text-secondary);
+  transition: opacity 0.2s ease;
+}
+
+.todo-header button:hover {
+  opacity: 0.7;
+}
+
+.task-item {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.task-item:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.task-item p {
+  color: var(--text-primary);
+}
+
+.task-item .task-meta {
+  color: var(--text-secondary);
+}
+
+.task-item .task-meta .material-icons {
+  color: var(--text-muted);
+}
+
+.task-item .task-meta .overdue {
+  color: var(--danger-color);
+}
+
+.task-actions {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.task-item:hover .task-actions {
+  opacity: 1;
+}
+
+.task-actions button {
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.task-actions button:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.task-dropdown {
+  background-color: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.task-dropdown button {
+  color: var(--text-secondary);
+  transition: background-color 0.2s ease;
+}
+
+.task-dropdown button:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.task-dropdown button.delete {
+  color: var(--danger-color);
+}
+
+.task-dropdown button.delete:hover {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.section-title {
+  color: var(--warning-color);
+  font-weight: 600;
+}
+
+.section-title.overdue {
+  color: var(--danger-color);
+}
+
+.empty-state {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Priority colors */
+.priority-overdue {
+  border-color: var(--danger-color) !important;
+}
+
+.priority-today {
+  border-color: var(--warning-color) !important;
+}
+
+.priority-upcoming {
+  border-color: var(--accent-color) !important;
+}

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Hasu Todo</string>
+    <string name="main_activity_title">Hasu Todo</string>
+    <string name="widget_description">Display your current todos on the home screen</string>
+</resources>

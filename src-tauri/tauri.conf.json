@@ -1,0 +1,44 @@
+{
+  "productName": "Hasu Todo",
+  "version": "0.1.0",
+  "identifier": "com.hasu.todo",
+  "build": {
+    "beforeDevCommand": "npm start",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../build",
+    "devUrl": "http://localhost:3000"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Hasu Todo",
+        "width": 800,
+        "height": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "minWidth": 400,
+        "minHeight": 300
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' 'unsafe-inline' data:; connect-src ipc: http://ipc.localhost https://*.supabase.co wss://*.supabase.co https://supabase.kanthi.io wss://supabase.kanthi.io; img-src 'self' data: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline';"
+    },
+    "withGlobalTauri": true
+  },
+  "plugins": {
+    "shell": {
+      "open": true
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.png"
+    ]
+  }
+}

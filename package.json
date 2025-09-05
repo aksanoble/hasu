@@ -1,0 +1,59 @@
+{
+  "name": "hasu",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@supabase/supabase-js": "^2.53.0",
+    "@tauri-apps/api": "^2.7.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "material-icons": "^1.13.14",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:production": "REACT_APP_ENV=production react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "db:migrate": "node supabase/run-migrations.js push",
+    "db:migrate:list": "node supabase/run-migrations.js list",
+    "db:migrate:new": "node supabase/run-migrations.js new",
+    "db:migrate:reset": "node supabase/run-migrations.js reset",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "REACT_APP_ENV=production tauri build",
+    "tauri:build:dev": "REACT_APP_ENV=development tauri build",
+    "tauri:android": "tauri android dev",
+    "tauri:android:build": "tauri android build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.7.1",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
+  }
+}
