@@ -1,0 +1,14 @@
+%syntax-version=1.0.0
+%project=hasu_todos
+
+create_hasu_todos_schema 2025-08-24T13:52:35Z System Administrator <root@medha> # Create Hasu todos schema with projects and todos tables
+fix_todo_project_foreign_key 2025-08-25T05:07:51Z System Administrator <root@medha> # Fix missing foreign key constraint between hasutodo_todos and hasutodo_projects
+create_default_inbox_project 2025-08-25T15:58:41Z System Administrator <root@medha> # Create default inbox project and add constraints to prevent deletion
+fix_inbox_creation 2025-08-25T16:12:00Z System Administrator <root@medha> # Fix inbox project creation for existing users
+enable_realtime_for_hasu_tables 2025-08-25T16:17:52Z System Administrator <root@medha> # Enable Supabase realtime for hasutodo tables
+fix_recursive_trigger 2025-08-28T17:52:51Z System Administrator <root@medha> # Fix recursive trigger causing stack depth limit error when creating projects
+add_sample_data 2025-08-28T17:54:02Z System Administrator <root@medha> # Add sample inbox project and sample project with tasks for new users
+fix_inbox_duplicates 2025-08-30T12:00:00Z System Administrator <root@medha> # Ensure only one Inbox per user, cleanup duplicates
+fix_inbox_function_for_todo 2025-08-30T12:15:00Z System Administrator <root@medha> # Redefine ensure_user_has_inbox_project for todos (no is_inbox access)
+remove_inbox_triggers 2025-08-30T20:12:21Z System Administrator <root@medha> # Remove all inbox creation triggers to prevent duplicates
+cascade_delete_project_todos 2025-09-01T00:00:00Z System Administrator <root@medha> # Delete todos when their project is deleted (no orphans)

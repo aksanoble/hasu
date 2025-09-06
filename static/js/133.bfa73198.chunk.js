@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkhasu=self.webpackChunkhasu||[]).push([[133],{133:(e,n,a)=>{a.d(n,{invoke:()=>s}),"function"===typeof SuppressedError&&SuppressedError;const p="__TAURI_TO_IPC_KEY__";new WeakMap,new WeakMap,new WeakMap,new WeakMap;async function s(e){let n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},a=arguments.length>2?arguments[2]:void 0;return window.__TAURI_INTERNALS__.invoke(e,n,a)}new WeakMap}}]);
+//# sourceMappingURL=133.bfa73198.chunk.js.map

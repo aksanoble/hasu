@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/hasu/static/css/main.2e35f21e.css",
+    "main.js": "/hasu/static/js/main.cd908ac2.js",
+    "static/js/133.bfa73198.chunk.js": "/hasu/static/js/133.bfa73198.chunk.js",
+    "static/js/453.2c3abf04.chunk.js": "/hasu/static/js/453.2c3abf04.chunk.js",
+    "index.html": "/hasu/index.html",
+    "main.2e35f21e.css.map": "/hasu/static/css/main.2e35f21e.css.map",
+    "main.cd908ac2.js.map": "/hasu/static/js/main.cd908ac2.js.map",
+    "133.bfa73198.chunk.js.map": "/hasu/static/js/133.bfa73198.chunk.js.map",
+    "453.2c3abf04.chunk.js.map": "/hasu/static/js/453.2c3abf04.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2e35f21e.css",
+    "static/js/main.cd908ac2.js"
+  ]
+}
