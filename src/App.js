@@ -6,12 +6,14 @@ import TodoList from './components/TodoList';
 import Navigation from './components/ProjectList';
 import AddProjectModal from './components/AddProjectModal';
 import Auth from './components/Auth';
+import SliderCard from './components/SliderCard';
 
 function AppContent() {
   const { user, loading, loadingMessage } = useAuth();
   const [selectedProject, setSelectedProject] = useState('today');
   const [isAddProjectModalOpen, setIsAddProjectModalOpen] = useState(false);
   const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   // Add keyboard event listener for 'q' key to open add task modal
   useEffect(() => {
@@ -73,7 +75,13 @@ function AppContent() {
       )}
       {user ? (
         <div className="flex h-screen overflow-hidden">
+          {/* Mobile overlay */}
+          {mobileNavOpen && (
+            <div className="fixed inset-0 bg-black bg-opacity-40 z-30 lg:hidden" onClick={() => setMobileNavOpen(false)} />
+          )}
           <Navigation 
+            mobileOpen={mobileNavOpen}
+            onCloseMobile={() => setMobileNavOpen(false)}
             selectedProjectId={typeof selectedProject === 'string' ? selectedProject : selectedProject?.id}
             onProjectSelect={handleProjectSelect}
             onAddProject={handleAddProject}
@@ -81,6 +89,7 @@ function AppContent() {
           />
           <div className="flex-1 overflow-hidden min-h-0">
             <TodoList 
+              onOpenSidebar={() => setMobileNavOpen(true)}
               selectedProject={selectedProject}
               onAddTodo={handleTodoAdded}
               isAddTaskModalOpen={isAddTaskModalOpen}
@@ -94,7 +103,14 @@ function AppContent() {
           />
         </div>
       ) : (
-        <Auth />
+        <div className="force-light min-h-screen flex items-center" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+          <div className="w-full py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-10 gap-10 items-center">
+              <section className="lg:col-span-7"><SliderCard /></section>
+              <section className="lg:col-span-3"><Auth embedded /></section>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

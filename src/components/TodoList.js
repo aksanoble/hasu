@@ -19,7 +19,7 @@ const localDateStr = (s) => {
   return toLocalISODate(d)
 }
 
-const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTaskModal }) => {
+const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTaskModal, onOpenSidebar = () => {} }) => {
   const [todos, setTodos] = useState([])
   const [loading, setLoading] = useState(true)
   const { user } = useAuth()
@@ -333,6 +333,8 @@ const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTa
     <div className="flex-1 flex flex-col h-full todo-list-container">
       <header className="flex items-center justify-between p-4 todo-header">
         <div className="flex items-center space-x-2">
+          {/* Mobile menu opener */}
+          <button className="material-icons mr-2 lg:hidden" onClick={onOpenSidebar} aria-label="Open menu">menu</button>
           <h2 className="text-lg">{getProjectTitle()}</h2>
         </div>
       </header>
@@ -353,14 +355,14 @@ const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTa
                         <h2 className="text-sm font-semibold section-title mb-4">Due Today</h2>
                         <div className="space-y-3">
                           {dueToday.map(todo => (
-                            <div key={todo.id} className="task-item group flex items-center justify-between py-2">
+                            <div key={todo.id} className="task-item group flex flex-col lg:flex-row justify-between py-2 rounded-xl border border-gray-700 bg-gray-800 p-4 lg:border-0 lg:bg-transparent lg:rounded-none lg:p-0">
                               <div className="flex items-center space-x-3">
-                                <button onClick={() => toggleTodo(todo.id)} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors`}>{todo.completed && (<span className="material-icons text-xs text-center leading-5 text-green-400">check</span>)}</button>
+                                <button onClick={() => toggleTodo(todo.id)} style={{ aspectRatio: '1 / 1' }} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors flex items-center justify-center shrink-0`}>{todo.completed && (<span className="material-icons text-xs text-green-400">check</span>)}</button>
                                 <button className="text-left" onClick={() => openEdit(todo)}>
                                   <p className={`${todo.completed ? 'line-through opacity-50' : ''}`}>{todo.text}</p>
                                 </button>
                               </div>
-                              <div className="flex items-center space-x-4 text-sm task-meta">
+                              <div className="w-full lg:w-auto flex items-center justify-between lg:justify-start space-x-4 text-sm task-meta mt-2 lg:mt-0 order-2 lg:order-none">
                                 {todo.due_date && (<span className="flex items-center space-x-1"><span className="material-icons text-sm">calendar_today</span><span>{formatDate(todo.due_date)}</span></span>)}
                                 {todo.project && (<span>{todo.project.name}</span>)}
                                 <TodoRowActions todo={todo} />
@@ -375,14 +377,14 @@ const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTa
                         <h2 className="text-sm font-semibold section-title overdue mb-4">Overdue</h2>
                         <div className="space-y-3">
                           {overdue.map(todo => (
-                            <div key={todo.id} className="task-item group flex items-center justify-between py-2">
+                            <div key={todo.id} className="task-item group flex flex-col lg:flex-row justify-between py-2 rounded-xl border border-gray-700 bg-gray-800 p-4 lg:border-0 lg:bg-transparent lg:rounded-none lg:p-0">
                               <div className="flex items-center space-x-3">
-                                <button onClick={() => toggleTodo(todo.id)} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors`}>{todo.completed && (<span className="material-icons text-xs text-center leading-5 text-green-400">check</span>)}</button>
+                                <button onClick={() => toggleTodo(todo.id)} style={{ aspectRatio: '1 / 1' }} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors flex items-center justify-center shrink-0`}>{todo.completed && (<span className="material-icons text-xs text-green-400">check</span>)}</button>
                                 <button className="text-left" onClick={() => openEdit(todo)}>
                                   <p className={`${todo.completed ? 'line-through opacity-50' : ''}`}>{todo.text}</p>
                                 </button>
                               </div>
-                              <div className="flex items-center space-x-4 text-sm task-meta">
+                              <div className="w-full lg:w-auto flex items-center justify-between lg:justify-start space-x-4 text-sm task-meta mt-2 lg:mt-0 order-2 lg:order-none">
                                 {todo.due_date && (<span className="flex items-center space-x-1"><span className="material-icons text-sm overdue">calendar_today</span><span>{formatDate(todo.due_date)}</span></span>)}
                                 {todo.project && (<span>{todo.project.name}</span>)}
                                 <TodoRowActions todo={todo} />
@@ -405,14 +407,14 @@ const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTa
                   <h2 className="text-sm font-semibold text-yellow-400 mb-4">Due Today</h2>
                   <div className="space-y-3">
                     {dueTodayTodos.map(todo => (
-                      <div key={todo.id} className="task-item group flex items-center justify-between py-2 border-b border-gray-800 hover:bg-gray-800 hover:bg-opacity-30 transition-colors">
+                      <div key={todo.id} className="task-item group flex flex-col lg:flex-row justify-between py-2 rounded-xl border border-gray-700 bg-gray-800 p-4 lg:border-0 lg:bg-transparent lg:rounded-none lg:p-0 transition-colors">
                         <div className="flex items-center space-x-3">
-                          <button onClick={() => toggleTodo(todo.id)} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors`}>{todo.completed && (<span className="material-icons text-xs text-center leading-5 text-green-400">check</span>)}</button>
+                                <button onClick={() => toggleTodo(todo.id)} style={{ aspectRatio: '1 / 1' }} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors flex items-center justify-center shrink-0`}>{todo.completed && (<span className="material-icons text-xs text-green-400">check</span>)}</button>
                           <button className="text-left" onClick={() => openEdit(todo)}>
                             <p className={`${todo.completed ? 'line-through text-gray-500' : 'text-gray-200'}`}>{todo.text}</p>
                           </button>
                         </div>
-                        <div className="flex items-center space-x-4 text-sm text-gray-400">
+                        <div className="w-full lg:w-auto flex items-center justify-between lg:justify-start space-x-4 text-sm text-gray-400 mt-2 lg:mt-0 order-2 lg:order-none">
                           {todo.due_date && (<span className="flex items-center space-x-1"><span className="material-icons text-sm text-gray-400">calendar_today</span><span>{formatDate(todo.due_date)}</span></span>)}
                           {todo.project && (<span>{todo.project.name}</span>)}
                           <TodoRowActions todo={todo} />
@@ -428,14 +430,14 @@ const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTa
                   <h2 className="text-sm font-semibold text-red-400 mb-4">Overdue</h2>
                   <div className="space-y-3">
                     {overdueTodos.map(todo => (
-                      <div key={todo.id} className="task-item group flex items-center justify-between py-2 border-b border-gray-800 hover:bg-gray-800 hover:bg-opacity-30 transition-colors">
+                      <div key={todo.id} className="task-item group flex flex-col lg:flex-row justify-between py-2 rounded-xl border border-gray-700 bg-gray-800 p-4 lg:border-0 lg:bg-transparent lg:rounded-none lg:p-0 transition-colors">
                         <div className="flex items-center space-x-3">
-                          <button onClick={() => toggleTodo(todo.id)} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors`}>{todo.completed && (<span className="material-icons text-xs text-center leading-5 text-green-400">check</span>)}</button>
+                          <button onClick={() => toggleTodo(todo.id)} style={{ aspectRatio: '1 / 1' }} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors flex items-center justify-center shrink-0`}>{todo.completed && (<span className="material-icons text-xs text-green-400">check</span>)}</button>
                           <button className="text-left" onClick={() => openEdit(todo)}>
                             <p className={`${todo.completed ? 'line-through text-gray-500' : 'text-gray-200'}`}>{todo.text}</p>
                           </button>
                         </div>
-                        <div className="flex items-center space-x-4 text-sm text-gray-400">
+                        <div className="w-full lg:w-auto flex items-center justify-between lg:justify-start space-x-4 text-sm text-gray-400 mt-2 lg:mt-0 order-2 lg:order-none">
                           {todo.due_date && (<span className="flex items-center space-x-1"><span className="material-icons text-sm text-red-400">calendar_today</span><span>{formatDate(todo.due_date)}</span></span>)}
                           {todo.project && (<span>{todo.project.name}</span>)}
                           <TodoRowActions todo={todo} />
@@ -449,14 +451,14 @@ const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTa
               {selectedProject !== 'completed' && activeTodos.length > 0 && (
                 <div className="space-y-3">
                   {activeTodos.map(todo => (
-                    <div key={todo.id} className="task-item group flex items-center justify-between py-2 border-b border-gray-800 hover:bg-gray-800 hover:bg-opacity-30 transition-colors">
+                    <div key={todo.id} className="task-item group flex flex-col lg:flex-row justify-between py-2 rounded-xl border border-gray-700 bg-gray-800 p-4 lg:border-0 lg:bg-transparent lg:rounded-none lg:p-0 transition-colors">
                       <div className="flex items-center space-x-3">
-                        <button onClick={() => toggleTodo(todo.id)} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors`}>{todo.completed && (<span className="material-icons text-xs text-center leading-5 text-green-400">check</span>)}</button>
+                        <button onClick={() => toggleTodo(todo.id)} style={{ aspectRatio: '1 / 1' }} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors flex items-center justify-center shrink-0`}>{todo.completed && (<span className="material-icons text-xs text-green-400">check</span>)}</button>
                         <button className="text-left" onClick={() => openEdit(todo)}>
                           <p className={`${todo.completed ? 'line-through text-gray-500' : 'text-gray-200'}`}>{todo.text}</p>
                         </button>
                       </div>
-                      <div className="flex items-center space-x-4 text-sm text-gray-400">
+                      <div className="w-full lg:w-auto flex items-center justify-between lg:justify-start space-x-4 text-sm text-gray-400 mt-2 lg:mt-0 order-2 lg:order-none">
                         {todo.due_date && (<span className="flex items-center space-x-1"><span className="material-icons text-sm text-gray-400">calendar_today</span><span>{formatDate(todo.due_date)}</span></span>)}
                         {todo.project && (<span>{todo.project.name}</span>)}
                         <TodoRowActions todo={todo} />
@@ -471,9 +473,9 @@ const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTa
                   <h2 className="text-sm font-semibold text-blue-400 mb-4">Upcoming</h2>
                   <div className="space-y-3">
                     {upcomingTodos.map(todo => (
-                      <div key={todo.id} className="task-item group flex items-center justify-between py-2 border-b border-gray-800 hover:bg-gray-800 hover:bg-opacity-30 transition-colors">
+                      <div key={todo.id} className="task-item group flex flex-col lg:flex-row justify-between py-2 rounded-xl border border-gray-700 bg-gray-800 p-4 lg:border-0 lg:bg-transparent lg:rounded-none lg:p-0 transition-colors">
                         <div className="flex items-center space-x-3">
-                          <button onClick={() => toggleTodo(todo.id)} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors`}>{todo.completed && (<span className="material-icons text-xs text-center leading-5 text-green-400">check</span>)}</button>
+                          <button onClick={() => toggleTodo(todo.id)} style={{ aspectRatio: '1 / 1' }} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors flex items-center justify-center shrink-0`}>{todo.completed && (<span className="material-icons text-xs text-green-400">check</span>)}</button>
                           <button className="text-left" onClick={() => openEdit(todo)}>
                             <p className={`${todo.completed ? 'line-through text-gray-500' : 'text-gray-200'}`}>{todo.text}</p>
                           </button>
@@ -494,9 +496,9 @@ const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTa
                   <h2 className="text-sm font-semibold text-gray-400 mb-4">Someday</h2>
                   <div className="space-y-3">
                     {somedayTodos.map(todo => (
-                      <div key={todo.id} className="task-item group flex items-center justify-between py-2 border-b border-gray-800 hover:bg-gray-800 hover:bg-opacity-30 transition-colors">
+                      <div key={todo.id} className="task-item group flex flex-col lg:flex-row justify-between py-2 rounded-xl border border-gray-700 bg-gray-800 p-4 lg:border-0 lg:bg-transparent lg:rounded-none lg:p-0 transition-colors">
                         <div className="flex items-center space-x-3">
-                          <button onClick={() => toggleTodo(todo.id)} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors`}>{todo.completed && (<span className="material-icons text-xs text-center leading-5 text-green-400">check</span>)}</button>
+                          <button onClick={() => toggleTodo(todo.id)} style={{ aspectRatio: '1 / 1' }} className={`w-5 h-5 border-2 ${getTaskPriorityColor(todo)} rounded-full cursor-pointer hover:bg-opacity-20 transition-colors flex items-center justify-center shrink-0`}>{todo.completed && (<span className="material-icons text-xs text-green-400">check</span>)}</button>
                           <button className="text-left" onClick={() => openEdit(todo)}>
                             <p className={`${todo.completed ? 'line-through text-gray-500' : 'text-gray-200'}`}>{todo.text}</p>
                           </button>
@@ -514,7 +516,7 @@ const TodoList = ({ selectedProject, onAddTodo, isAddTaskModalOpen, onCloseAddTa
               {selectedProject === 'completed' && (
                 <div className="space-y-3">
                   {todos.map(todo => (
-                    <div key={todo.id} className="task-item group flex items-center justify-between py-2 border-b border-gray-800 hover:bg-gray-800 hover:bg-opacity-30 transition-colors opacity-80">
+                    <div key={todo.id} className="task-item group flex flex-col lg:flex-row justify-between py-2 rounded-xl border border-gray-700 bg-gray-800 p-4 lg:border-0 lg:bg-transparent lg:rounded-none lg:p-0 transition-colors opacity-80">
                       <div className="flex items-center space-x-3">
                         <button onClick={() => toggleTodo(todo.id)} className="w-5 h-5 border-2 border-green-400 bg-green-400 rounded-full cursor-pointer hover:bg-green-500 transition-colors flex items-center justify-center"><span className="material-icons text-xs text-white">check</span></button>
                         <button className="text-left" onClick={() => openEdit(todo)}>

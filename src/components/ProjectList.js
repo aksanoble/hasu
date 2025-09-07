@@ -5,7 +5,7 @@ import ThemeToggle from './ThemeToggle'
 import AddProjectModal from './AddProjectModal'
 import './ProjectList.css'
 
-const Navigation = ({ selectedProjectId, onProjectSelect, onAddProject, onAddTask }) => {
+const Navigation = ({ selectedProjectId, onProjectSelect, onAddProject, onAddTask, mobileOpen = false, onCloseMobile = () => {} }) => {
   const [projects, setProjects] = useState([])
   const [favoriteProjects, setFavoriteProjects] = useState([])
   const [regularProjects, setRegularProjects] = useState([])
@@ -277,7 +277,8 @@ const Navigation = ({ selectedProjectId, onProjectSelect, onAddProject, onAddTas
   )
 
   return (
-    <aside className={`${isCollapsed ? 'w-16' : 'w-64'} sidebar flex-shrink-0 flex flex-col h-screen overflow-hidden transition-all duration-300 ease-in-out`}>
+    <aside className={`sidebar flex-shrink-0 flex flex-col h-screen overflow-hidden transition-transform duration-300 ease-in-out bg-transparent z-40
+      fixed inset-y-0 left-0 w-64 transform ${mobileOpen ? 'translate-x-0' : '-translate-x-full'} lg:static lg:translate-x-0 ${isCollapsed ? 'lg:w-16' : 'lg:w-64'}`}>
       {/* Header Section - Fixed */}
       <div className={`flex-shrink-0 ${isCollapsed ? 'p-2' : 'p-4'} border-b border-gray-800`}>
         <div className="flex items-center justify-between">
@@ -337,6 +338,8 @@ const Navigation = ({ selectedProjectId, onProjectSelect, onAddProject, onAddTas
             >
               {isCollapsed ? 'chevron_right' : 'chevron_left'}
             </button>
+            {/* Close on mobile */}
+            <button onClick={onCloseMobile} className="material-icons text-lg sidebar-icon cursor-pointer lg:hidden" title="Close menu">close</button>
           </div>
         </div>
       </div>

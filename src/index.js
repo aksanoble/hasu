@@ -12,6 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const params = new URLSearchParams(window.location.search);
 const mode = params.get('mode');
 
+
 root.render(
   <React.StrictMode>
     {mode === 'quick-add' ? (

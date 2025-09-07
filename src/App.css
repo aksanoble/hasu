@@ -24,6 +24,31 @@
   --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Force-light theme wrapper (landing page) */
+.force-light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #adb5bd;
+  --border-color: #dee2e6;
+  --border-color-hover: #ced4da;
+  --accent-color: #2563eb;
+  --accent-hover: #1d4ed8;
+  --danger-color: #dc3545;
+  --danger-hover: #c82333;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --sidebar-bg: #f8f9fa;
+  --sidebar-text: #495057;
+  --sidebar-hover: #e9ecef;
+  --modal-bg: #ffffff;
+  --modal-border: #dee2e6;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
 /* Dark theme variables */
 [data-theme="dark"] {
   --bg-primary: #1a1a1a;

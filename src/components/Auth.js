@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Auth = () => {
+const Auth = ({ embedded = false }) => {
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
 
@@ -247,15 +247,16 @@ const Auth = () => {
     }
   }
 
-
-  return (
-    <div className="auth-container" style={{ backgroundColor: '#ede4d1' }}>
+  const Card = (
       <div style={{ 
         textAlign: 'center', 
-        backgroundColor: '#ede4d1',
+        backgroundColor: embedded ? 'var(--bg-primary)' : '#ede4d1',
         padding: '40px',
         maxWidth: '500px',
-        margin: '0 auto'
+        margin: embedded ? '0' : '0 auto',
+        borderRadius: embedded ? 12 : 0,
+        border: embedded ? '1px solid var(--border-color)' : 'none',
+        boxShadow: embedded ? 'var(--shadow)' : 'none'
       }}>
         <img src="/logo512.png" alt="Hasu" style={{ 
           width: 120, 
@@ -381,6 +382,13 @@ const Auth = () => {
           </a>
         </div>
       </div>
+  )
+
+  if (embedded) return Card
+
+  return (
+    <div className="auth-container" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+      {Card}
     </div>
   )
 }
