@@ -1,4 +1,4 @@
-# Hasu — Your Todo App On Your Own Supabase
+# Hasu — A Todoist Clone that works with your supabase.
 
 Hasu is a simple, fast todo app that runs entirely on your own Supabase project. It uses Supakey for authentication and one‑click setup so your data stays private and under your control.
 
