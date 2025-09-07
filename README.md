@@ -4,6 +4,35 @@ Hasu is a simple, fast todo app that runs entirely on your own Supabase project.
 
 Status: Alpha — looking for early testers. Expect breaking changes and report issues generously.
 
+## Screenshots
+
+Below are a few screens of Hasu.
+
+<div align="center">
+  <img src="docs/screenshots/hasu-screenshot-03.png" alt="Today View" />
+  <p><em>Today View</em></p>
+  </div>
+
+<div align="center">
+  <img src="docs/screenshots/hasu-screenshot-01.png" alt="Dark theme" />
+  <p><em>Dark theme</em></p>
+  </div>
+
+<div align="center">
+  <img src="docs/screenshots/hasu-screenshot-02.png" alt="Create Projects" />
+  <p><em>Create Projects</em></p>
+  </div>
+
+<div align="center">
+  <img src="docs/screenshots/hasu-screenshot-04.png" alt="Quick Add Task" />
+  <p><em>Quick Add Task</em></p>
+  </div>
+
+<div align="center">
+  <img src="docs/screenshots/hasu-screenshot-05.png" alt="Completed Tasks" />
+  <p><em>Completed Tasks</em></p>
+  </div>
+
 **What This Means**
 
 - Your data lives in your Supabase project (not ours).
@@ -42,18 +71,12 @@ See `hasu/CONTRIBUTING.md` for environment variables and local development steps
 - Applies RLS and grants for authenticated users (no anon access).
 - Issues app‑specific user tokens so Hasu can connect directly to your database.
 
-## Security Notes
-
-- No service keys in the browser; tokens are short‑lived and rotate.
-- CORS is locked down on Supakey functions; origins must be configured by you.
-- You own your data and your project; revoke access any time in Supabase.
-
 ## Alpha Disclaimer
 
 - APIs and schema may change.
 - Expect occasional rough edges; please open issues/PRs.
 
-## Reset / Fresh Install (Optional)
+## CONTRIBUTING
 
 See `hasu/CONTRIBUTING.md`.
 

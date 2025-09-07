@@ -1,7 +1,9 @@
 {
   "name": "hasu",
   "version": "0.1.0",
+  "description": "Hasu is a simple, fast todo app that runs entirely on your own Supabase. It uses Supakey for auth and one‑click setup so your data stays private and under your control.",
   "private": true,
+  "homepage": "https://hasu.kanthi.io",
   "dependencies": {
     "@supabase/supabase-js": "^2.53.0",
     "@tauri-apps/api": "^2.7.0",
@@ -30,7 +32,9 @@
     "tauri:build": "REACT_APP_ENV=production tauri build",
     "tauri:build:dev": "REACT_APP_ENV=development tauri build",
     "tauri:android": "tauri android dev",
-    "tauri:android:build": "tauri android build"
+    "tauri:android:build": "tauri android build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +57,7 @@
   "devDependencies": {
     "@tauri-apps/cli": "^2.7.1",
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17"
   }
