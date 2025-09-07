@@ -128,10 +128,13 @@ function AppContent() {
             </div>
           </main>
           <footer className="py-8 text-center text-sm text-gray-500">© Hasu •
-            <a href="mailto:akshay@kanthi.io" aria-label="Email" className="inline-flex items-center justify-center align-middle text-gray-500 hover:text-gray-700 ml-2">
+            <a href="mailto:akshay@kanthi.io" aria-label="Email" className="inline-flex items-center justify-center align-middle text-gray-500 hover:text-gray-700 ml-2 mr-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="block">
                 <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8.236l8 6.4 8-6.4V18H4z"/>
               </svg>
+            </a>
+            <a href="https://x.com/aksanoble" target="_blank" rel="noopener" aria-label="X (Twitter)" className="inline-flex items-center justify-center align-middle text-gray-500 hover:text-gray-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="block"><path d="M4 4l16 16M20 4L4 20"/></svg>
             </a>
           </footer>
         </div>
